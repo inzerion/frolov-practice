@@ -1,9 +1,14 @@
 package org.zaverukha.edu;
 
 class A{
-    String message = "Empty";
+    String message;
     A(){
+        this("Empty");
 
+    }
+
+    A(String message){
+        this.message = message;
 
     }
 
