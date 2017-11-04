@@ -1,65 +1,22 @@
 package org.zaverukha.edu;
 
 
-import java.security.acl.AclNotFoundException;
-
-class A{
-    private String message;
-    A(){
-        this("Empty");
-
-    }
-
-    A(String message){
-        this.message = message;
-
-    }
-
-    String getMessage(){ return  this.message; }
-
-    void setMessage(String message){
-        this.message = message;
-
-    }
-
-
-    @Override
-    public String toString() {
-        return message + super.toString();
-    }
-}
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Main {
-    static final int MY_NUM = 5;
+    static Logger logger = LoggerFactory.getLogger(Main.class);
     public static void main(String[] args) {
-        int[] in = new int[2];
-        try{
-            in[2] =   in[1];
-        }catch ( ArrayIndexOutOfBoundsException ex){
-            in[1] = 1;
-//            error.printStackTrace();
-//            System.out.println(error);
-        }
-
-
+        //System.setProperty("webdriver.chrome.driver", "/Users/alexanderzaverukha/Software/chromedriver");
+        WebDriver chromeDriver = new ChromeDriver();
+        JavascriptExecutor jsexec = (JavascriptExecutor)chromeDriver;
+        chromeDriver.get("http://google.com");
+        jsexec.executeScript("return alert('Hello')");
+        chromeDriver.quit();
     }
-
-    static void test(int a){
-        a = 8;
-        System.out.println(a);
-
-    }
-
-    static void test2(Integer b){
-        b = 9;
-        System.out.println(b);
-    }
-
-
-    static void test3(A clazz){
-        clazz.setMessage("Hello Worlds");
-        System.out.println(clazz);
-    }
-
-
 }
