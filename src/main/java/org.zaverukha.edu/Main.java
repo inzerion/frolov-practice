@@ -1,7 +1,10 @@
 package org.zaverukha.edu;
 
+
+import java.security.acl.AclNotFoundException;
+
 class A{
-    String message;
+    private String message;
     A(){
         this("Empty");
 
@@ -29,16 +32,16 @@ class A{
 public class Main {
     static final int MY_NUM = 5;
     public static void main(String[] args) {
-        int a = 5;
-        Integer b = 6;
-        test(a);
-        test2(b);
-        System.out.println(a);
-        System.out.println(b);
-        A clazz = new A();
-        System.out.println(clazz);
-        A clazz2 = new A();
-        System.out.println(clazz2);
+        int[] in = new int[2];
+        try{
+            in[2] =   in[1];
+        }catch ( ArrayIndexOutOfBoundsException ex){
+            in[1] = 1;
+//            error.printStackTrace();
+//            System.out.println(error);
+        }
+
+
     }
 
     static void test(int a){
